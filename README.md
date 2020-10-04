@@ -8,4 +8,4 @@ Used technologies:
 
 Demo: https://angular-blog-86190.firebaseapp.com/
 
-Enter to admin panel: admin@gmail.com:qwerty
+For login to admin panel: admin@gmail.com:qwerty
