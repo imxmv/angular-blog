@@ -1,0 +1,41 @@
+<div class="container">
+    <h4>Create</h4>
+    <div class="row">
+        <form class="col s12" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+                    <input id="title" type="text" formControlName="title">
+                    <label for="title">Title</label>
+                    <div *ngIf="form.get('title').touched && form.get('title').invalid">
+                        <span *ngIf="form.get('title').errors.required" class="helper-text">Enter title</span>
+                    </div>
+                </div>
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('author').touched && form.get('author').invalid}">
+                    <input id="author" type="text" formControlName="author">
+                    <label for="author">Author</label>
+                    <div *ngIf="form.get('author').touched && form.get('author').invalid">
+                        <span *ngIf="form.get('author').errors.required" class="helper-text">Enter author name</span>
+                    </div>
+                </div>
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('description').touched && form.get('description').invalid}">
+                    <input id="description" type="text" formControlName="description">
+                    <label for="description">Description</label>
+                    <div *ngIf="form.get('author').touched && form.get('author').invalid">
+                        <span *ngIf="form.get('author').errors.required" class="helper-text">Enter description</span>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <quill-editor formControlName="text"></quill-editor>
+                </div>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" [disabled]="form.invalid" type="submit">
+                        Create
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

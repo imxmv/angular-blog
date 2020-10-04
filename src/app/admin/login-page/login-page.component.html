@@ -1,0 +1,45 @@
+<div class="container">
+    <h4>Enter to Administrator Panel</h4>
+    <div class="row">
+        <form class="col s12" [formGroup]="form" (ngSubmit)="submit()">
+            <div *ngIf="auth.error$ | async as error">
+                {{ error }}
+            </div>
+
+            <div *ngIf="message">
+                {{ message }}
+            </div>
+            <div class="row">
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}">
+                    <input id="email" type="email" formControlName="email">
+                    <label for="email">Email</label>
+                    <div *ngIf="form.get('email').touched && form.get('email').invalid">
+                        <span *ngIf="form.get('email').errors.required" class="helper-text">Enter Email</span>
+                        <span *ngIf="form.get('email').errors.email" class="helper-text">Must be Email</span>
+                    </div>
+                </div>
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}">
+                    <input id="password" type="password" formControlName="password">
+                    <label for="password">Password</label>
+                    <div *ngIf="form.get('password').touched && form.get('password').invalid">
+                        <span *ngIf="form.get('password').errors.required" class="helper-text">Enter Password</span>
+                        <span *ngIf="form.get('password').errors.minlength" class="helper-text">
+                            Password must be
+                            {{form.get('password').errors.minlength.requiredLength}}
+                            symbols. Now it's
+                            {{form.get('password').errors.minlength.actualLength}}
+                            symbols.
+                        </span>
+                    </div>
+                </div>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" [disabled]="form.invalid || submitted" type="submit">
+                        Enter
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

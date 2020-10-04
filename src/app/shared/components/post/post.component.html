@@ -1,0 +1,12 @@
+<div class="col s12">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ post.title }}</span>
+            <small>{{ post.date | date:'dd.MM.yyyy' }} - <strong>{{ post.author }}</strong></small>
+            <p>{{ post.description }}</p>
+        </div>
+        <div class="card-action">
+            <button class="btn waves-effect waves-light" [routerLink]="['/post', post.id]">Open</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<header>
+    <nav class="blue-grey lighten-2" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" [routerLink]="['/admin', 'dashboard']" class="brand-logo">Admin Panel</a>
+            <ul class="right hide-on-med-and-down" *ngIf="auth.isAuthenticated()">
+                <li routerLinkActive="active"><a [routerLink]="['/admin', 'dashboard']" href="#login">Dashboard</a></li>
+                <li routerLinkActive="active"><a [routerLink]="['/admin', 'create']" href="#registration">Create</a></li>
+                <li><a href="#" (click)="logout($event)">Exit</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<footer class="page-footer blue-grey lighten-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                Made by: <a class="white-text" href="https://github.com/imxmv">https://github.com/imxmv</a>
+            </div>
+        </div>
+    </div>
+</footer>

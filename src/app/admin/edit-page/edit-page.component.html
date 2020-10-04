@@ -1,0 +1,37 @@
+<div class="container">
+    <h4>Edit</h4>
+    <div class="row" *ngIf="form; else loading">
+        <form class="col s12" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('title').touched && form.get('title').invalid}">
+                    <input id="title" type="text" formControlName="title">
+                    <div *ngIf="form.get('title').touched && form.get('title').invalid">
+                        <span *ngIf="form.get('title').errors.required" class="helper-text">Enter title</span>
+                    </div>
+                </div>
+                <div class="input-field col s12"
+                     [ngClass]="{invalid: form.get('description').touched && form.get('description').invalid}">
+                    <input id="description" type="text" formControlName="description">
+                    <div *ngIf="form.get('description').touched && form.get('description').invalid">
+                        <span *ngIf="form.get('description').errors.required" class="helper-text">Enter description</span>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <quill-editor formControlName="text"></quill-editor>
+                </div>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" [disabled]="form.invalid || submitted" type="submit">
+                        Update
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="row">
+        <p>Loading...</p>
+    </div>
+</ng-template>

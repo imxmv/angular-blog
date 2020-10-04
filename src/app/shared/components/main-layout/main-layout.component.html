@@ -1,0 +1,23 @@
+<header>
+    <nav class="blue-grey lighten-2" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" routerLink="/" class="brand-logo">Angular Blog</a>
+            <ul class="right hide-on-med-and-down">
+                <li routerLinkActive="active"><a [routerLink]="['/admin', 'dashboard']" href="#dashboard">Admin Panel</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
+<footer class="page-footer blue-grey lighten-2">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s12">
+                Made by: <a class="white-text" href="https://github.com/imxmv">https://github.com/imxmv</a>
+            </div>
+        </div>
+    </div>
+</footer>

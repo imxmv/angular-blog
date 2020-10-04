@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import "~quill/dist/quill.core.css";
+@import "~quill/dist/quill.snow.css";
+
+app-main-layout, app-admin-layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
